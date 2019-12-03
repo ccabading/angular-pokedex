@@ -2,11 +2,11 @@
   <button (click)="changeResults(response.next)">Next</button>
   <button (click)="changeResults(response.previous)">Previous</button>
   <p>Responses</p>
-  <p>Count: <span>{{ response.count }}</span></p>
-  <p>Next: <span>{{ response.next }}</span></p>
-  <p>Previous: <span>{{ response.previous }}</span></p>
+  <p>Count: <span>{{ response?.count }}</span></p>
+  <p>Next: <span>{{ response?.next }}</span></p>
+  <p>Previous: <span>{{ response?.previous }}</span></p>
   <p>Results</p>
-  <div *ngFor="let pokemon of response.results">
-    <p>{{ pokemon.name }}</p>
+  <div *ngFor="let pokemon of response?.results">
+    <p>{{ pokemon?.name }}</p>
   </div>
 </div>

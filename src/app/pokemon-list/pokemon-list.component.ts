@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Injectable } from '@angular/core';
-import { PokeApiService } from '../services/PokeApi.service'
+import { PokeApiService } from '../services/PokeApi.service';
 
 import { PokeApi } from '../models/PokeApi';
 
@@ -12,6 +12,15 @@ import { PokeApi } from '../models/PokeApi';
 export class PokemonListComponent implements OnInit {
 
   response;
+
+  @HostListener('window:scroll', [])
+  onScroll(): void {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+      // you're at the bottom of the page
+      this.pokeApiService.setUrl(this.response.next);
+      this.getResponse();
+    }
+}
 
   constructor(
     private pokeApiService: PokeApiService
@@ -29,7 +38,7 @@ export class PokemonListComponent implements OnInit {
   getResponse() {
     this.pokeApiService.getResponse().subscribe(response => {
       this.response = response;
-      console.log(response);
+      console.log(this.response);
     });
   }
 
