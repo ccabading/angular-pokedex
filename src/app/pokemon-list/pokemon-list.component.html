@@ -1,5 +1,5 @@
 <div>
-  <button mat-button color="primary" (click)="changeResults(response.next)">Next</button>
+  <button (click)="changeResults(response.next)">Next</button>
   <button (click)="changeResults(response.previous)">Previous</button>
   <p>Responses</p>
   <p>Count: <span>{{ response?.count }}</span></p>
