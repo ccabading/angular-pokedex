@@ -1,3 +1,8 @@
 <p>
   pokemon-list works!
 </p>
+
+ <div *ngFor="let pokemon of pokemons">
+  <p>Number: <span>{{ pokemon.number }}</span></p>
+  <p>Name: <span>{{ pokemon.name }}</span></p>
+ </div>
