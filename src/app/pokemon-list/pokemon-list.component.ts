@@ -2,7 +2,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { PokeApiService } from '../services/PokeApi.service';
 
-import { PokeApi } from '../models/PokeApi';
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-pokemon-list',

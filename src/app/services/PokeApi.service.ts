@@ -7,6 +7,7 @@ import { PokeApi } from '../models/PokeApi';
 @Injectable({
   providedIn: 'root'
 })
+
 export class PokeApiService {
 
   url = 'https://pokeapi.co/api/v2/pokemon/';
