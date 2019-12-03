@@ -1,4 +1,4 @@
 export class Pokemon {
-  number: string;
-  name: string;
+  id: string;
+  title: string;
 }

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Injectable } from '@angular/core';
-import { PokemonService } from '../services/Pokemon.service';
+import { PokeApiService } from '../services/PokeApi.service'
 
-import { Pokemon } from '../../Pokemon';
+import { PokeApi } from '../models/PokeApi';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -11,14 +11,26 @@ import { Pokemon } from '../../Pokemon';
 })
 export class PokemonListComponent implements OnInit {
 
-  pokemons: Pokemon[];
+  response;
 
   constructor(
-    private pokemonService: PokemonService
+    private pokeApiService: PokeApiService
   ) { }
 
   ngOnInit() {
+    this.getResponse();
+  }
 
+  changeResults(nextUrl: string) {
+    this.pokeApiService.setUrl(nextUrl);
+    this.getResponse();
+  }
+
+  getResponse() {
+    this.pokeApiService.getResponse().subscribe(response => {
+      this.response = response;
+      console.log(response);
+    });
   }
 
 }
