@@ -13,8 +13,3 @@ mat-grid-list {
 mat-grid-tile {
   padding: 16px;
 }
-
-mat-card {
-  width: 80%;
-  height: 80%;
-}
