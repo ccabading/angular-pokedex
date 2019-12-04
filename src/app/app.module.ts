@@ -9,6 +9,12 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 import { AdvancedSearchComponent } from './advanced-search/advanced-search.component';
 
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+
 @NgModule({
    declarations: [
       AppComponent,
@@ -22,7 +28,12 @@ import { AdvancedSearchComponent } from './advanced-search/advanced-search.compo
       HttpClientModule,
       RouterModule.forRoot([
         { path: '', component: PokemonListComponent },
-      ])
+      ]),
+      MatToolbarModule,
+      MatInputModule,
+      MatButtonModule,
+      MatGridListModule,
+      MatCardModule,
    ],
    providers: [],
    bootstrap: [

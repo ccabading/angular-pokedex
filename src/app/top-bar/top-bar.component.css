@@ -1,0 +1,29 @@
+mat-toolbar {
+  background-color: primary;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.searchArea {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 4px 8px 4px 8px;
+  background-color: #ffffff;
+  border-radius: 15px;
+}
+
+.searchText {
+  font-size: 14px;
+  border-radius: 15px;
+  padding: 8px;
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+}
+
+.searchButton {
+  width: 24px;
+  height: 24px;
+}

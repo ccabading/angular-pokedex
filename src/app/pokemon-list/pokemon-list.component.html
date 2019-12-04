@@ -1,12 +1,22 @@
 <div>
-  <button mat-button (click)="changeResults(response.next)">Next</button>
-  <button (click)="changeResults(response.previous)">Previous</button>
-  <p>Responses</p>
-  <p>Count: <span>{{ response?.count }}</span></p>
-  <p>Next: <span>{{ response?.next }}</span></p>
-  <p>Previous: <span>{{ response?.previous }}</span></p>
-  <p>Results</p>
-  <div *ngFor="let pokemon of response?.results">
-    <p>{{ pokemon?.name }}</p>
+  <div class="listHeader">
+    <button mat-raised-button (click)="changeResults(response.previous)">Previous</button>
+    <p>Showing -- to -- of --- Results</p>
+    <button mat-raised-button (click)="changeResults(response.next)">Next</button>
   </div>
+
+  <mat-grid-list cols="3">
+    <mat-grid-tile *ngFor="let pokemon of response?.results">
+
+      <mat-card>
+        <mat-card-content>
+          <p>Name: {{ pokemon?.name | uppercase }}</p>
+          <p>ID: {{ pokemon?.url }}</p>
+          <p>Weight: {{ details?.weight }}</p>
+          <!-- <p>Height: {{ details?.height }}</p> -->
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+
 </div>
