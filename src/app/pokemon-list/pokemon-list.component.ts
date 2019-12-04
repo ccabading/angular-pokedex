@@ -10,32 +10,24 @@ import { PokeApiService } from '../services/PokeApi.service';
 export class PokemonListComponent implements OnInit {
 
   response;
-  details;
 
   constructor(
     private pokeApiService: PokeApiService
   ) { }
 
   ngOnInit() {
-    this.getResponse();
+    this.getResults();
   }
 
   changeResults(nextUrl: string) {
     this.pokeApiService.setUrl(nextUrl);
-    this.getResponse();
+    this.getResults();
   }
 
-  getResponse() {
-    this.pokeApiService.getResponse().subscribe(response => {
+  getResults() {
+    this.pokeApiService.getResults().subscribe(response => {
       this.response = response;
       console.log(this.response);
-    });
-  }
-
-  getPokemonDetails(url: string) {
-    this.pokeApiService.getPokemonDetails(url).subscribe(details => {
-      this.details = details;
-      console.log(this.details);
     });
   }
 

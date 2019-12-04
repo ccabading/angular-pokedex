@@ -21,7 +21,7 @@ export class PokeApiService {
     this.url = url;
   }
 
-  getResponse(): Observable<PokeApi[]> {
+  getResults(): Observable<PokeApi[]> {
     return this.http.get<PokeApi[]>(this.url);
   }
 

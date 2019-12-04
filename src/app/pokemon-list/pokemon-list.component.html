@@ -7,13 +7,10 @@
 
   <mat-grid-list cols="3">
     <mat-grid-tile *ngFor="let pokemon of response?.results">
-
       <mat-card>
         <mat-card-content>
           <p>Name: {{ pokemon?.name | uppercase }}</p>
           <p>ID: {{ pokemon?.url }}</p>
-          <p>Weight: {{ details?.weight }}</p>
-          <!-- <p>Height: {{ details?.height }}</p> -->
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
