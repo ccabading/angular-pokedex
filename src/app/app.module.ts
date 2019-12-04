@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
+import { PokemonDetailsComponent } from './pokemon-details/pokemon-details.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
@@ -19,6 +20,7 @@ import { MatCardModule } from '@angular/material/card';
       AppComponent,
       TopBarComponent,
       PokemonListComponent,
+      PokemonDetailsComponent
    ],
    imports: [
       BrowserModule,

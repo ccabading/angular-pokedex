@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { PokeApi } from '../models/PokeApi';
-import { Pokemon } from '../models/Pokemon';
+import { PokeApiResults } from '../models/PokeApiResults';
+import { Pokemon } from '../models/PokemonDetails';
 
 @Injectable({
   providedIn: 'root'
@@ -21,8 +21,8 @@ export class PokeApiService {
     this.url = url;
   }
 
-  getResults(): Observable<PokeApi[]> {
-    return this.http.get<PokeApi[]>(this.url);
+  getPokeApiResults(): Observable<PokeApiResults[]> {
+    return this.http.get<PokeApiResults[]>(this.url);
   }
 
   getPokemonDetails(url: string): Observable<Pokemon[]> {
