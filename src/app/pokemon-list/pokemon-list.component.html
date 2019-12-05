@@ -1,8 +1,8 @@
 <div>
   <div class="listHeader">
-    <button mat-raised-button (click)="changeResults(apiResponse.previous)">Previous</button>
-    <p>Showing -- to -- of --- Results</p>
-    <button mat-raised-button (click)="changeResults(apiResponse.next)">Next</button>
+    <button mat-raised-button color="accent" (click)="changeResults(apiResponse.previous)">Previous</button>
+    <p>Showing 000 to 020 of {{ apiResponse?.count}} Results</p>
+    <button mat-raised-button color="accent" (click)="changeResults(apiResponse.next)">Next</button>
   </div>
 
   <p>Prev: {{ apiResponse?.previous }}</p>
@@ -10,7 +10,7 @@
 
   <mat-grid-list cols="2">
     <mat-grid-tile *ngFor="let pokemon of apiResponse?.results">
-      <mat-card (click)="showPokemonDetails($event)">
+      <mat-card (click)="showPokemonDetails(pokemon?.url)">
         <mat-card-content>
           <p>{{ pokemon?.name | uppercase }}</p>
           <p>{{ pokemon?.url }}</p>

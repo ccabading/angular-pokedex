@@ -1,10 +1,8 @@
 mat-toolbar {
-  background-color: primary;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 
 .searchArea {
   display: flex;

@@ -50,11 +50,18 @@ app-top-bar {
   justify-content: space-between;
   align-items: center;
 } */
-
-body {
-  margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
-}
-
 .container {
   padding: 8px 16px;
 }
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

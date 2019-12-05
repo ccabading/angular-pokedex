@@ -14,6 +14,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
    declarations: [
@@ -34,6 +35,7 @@ import { MatCardModule } from '@angular/material/card';
       MatButtonModule,
       MatGridListModule,
       MatCardModule,
+      MatDialogModule,
    ],
    providers: [],
    bootstrap: [
