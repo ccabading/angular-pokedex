@@ -3,6 +3,7 @@ export interface PokemonDetails {
   weight: number;
   height: number;
   sprites: Sprite;
+  types: Types[];
 }
 
 export interface Sprite {
@@ -14,4 +15,14 @@ export interface Sprite {
   front_female?: any;
   front_shiny: string;
   front_shiny_female?: any;
+}
+
+export interface Types {
+  slot: number;
+  type: Type;
+}
+
+export interface Type {
+  name: string;
+  typeUrl: string;
 }
