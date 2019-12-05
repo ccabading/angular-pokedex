@@ -8,8 +8,8 @@
 
 mat-card {
   cursor: pointer;
-  /* width: 80%;
-  height: 80%; */
+  width: 75%;
+  max-width: 400px;
 }
 
 mat-card-content {

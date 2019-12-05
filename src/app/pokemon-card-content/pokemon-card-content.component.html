@@ -1,7 +1,11 @@
-<p>{{ pokemonDetails?.name | uppercase }}</p>
-<img src="{{ pokemonDetails?.sprites.front_default }}">
-<p>Weight: {{ pokemonDetails?.weight }}</p>
-<p>Height: {{ pokemonDetails?.height }}</p>
-<button *ngFor="let type of pokemonDetails?.types">
-  {{ type.type.name }}
-</button>
+<div *ngIf="pokemonDetails">
+  <p>{{ pokemonDetails.name | uppercase }}</p>
+  <img src="{{ pokemonDetails.sprites.front_default }}">
+  <p>Weight: {{ pokemonDetails.weight }}</p>
+  <p>Height: {{ pokemonDetails.height }}</p>
+ <div id="type-buttons">
+    <button mat-raised-button *ngFor="let type of pokemonDetails.types">
+        {{ type.type.name | uppercase }}
+    </button>
+ </div>
+</div>

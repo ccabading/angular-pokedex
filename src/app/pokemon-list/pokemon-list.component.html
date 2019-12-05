@@ -1,24 +1,21 @@
-<div>
+<div *ngIf="apiResponse">
   <div class="listHeader">
     <button mat-raised-button color="accent" (click)="changeResults(apiResponse.previous)">Previous</button>
     <p>Showing 000 to 020 of {{ apiResponse?.count}} Results</p>
     <button mat-raised-button color="accent" (click)="changeResults(apiResponse.next)">Next</button>
   </div>
-
   <mat-grid-list cols="4">
     <mat-grid-tile *ngFor="let pokemon of apiResponse?.results">
       <mat-card (click)="showPokemonDetails(pokemon?.url)">
         <mat-card-content>
-          <app-pokemon-card-content [pokemonUrl]="pokemon?.url"></app-pokemon-card-content>
+          <app-pokemon-card-content [pokemonUrl]="pokemon?.url">Loading...</app-pokemon-card-content>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
-
   <div class="listHeader">
     <button mat-raised-button color="accent" (click)="changeResults(apiResponse.previous)">Previous</button>
     <p>Showing 000 to 020 of {{ apiResponse?.count}} Results</p>
     <button mat-raised-button color="accent" (click)="changeResults(apiResponse.next)">Next</button>
   </div>
-
 </div>
