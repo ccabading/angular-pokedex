@@ -29,11 +29,6 @@ export class PokemonListComponent implements OnInit {
       this.apiResponse = response;
       console.log(this.apiResponse);
     });
-    // console.log(this.apiResponse.prev);
-  }
-
-  loadContent() {
-
   }
 
   showPokemonDetails(url: string) {

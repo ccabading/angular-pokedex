@@ -15,13 +15,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
+import { PokemonCardContentComponent } from './pokemon-card-content/pokemon-card-content.component';
 
 @NgModule({
    declarations: [
       AppComponent,
       TopBarComponent,
       PokemonListComponent,
-      PokemonDetailsComponent
+      PokemonDetailsComponent,
+      PokemonCardContentComponent
    ],
    imports: [
       BrowserModule,
