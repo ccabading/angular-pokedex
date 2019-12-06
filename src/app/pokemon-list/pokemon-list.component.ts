@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, Input } from '@angular/core';
 import { Injectable } from '@angular/core';
 
 import { PokeApiService } from '../services/PokeApi.service';
@@ -10,6 +10,7 @@ import { PokeApiService } from '../services/PokeApi.service';
 })
 export class PokemonListComponent implements OnInit {
 
+  @Input() typeUrl: string;
   apiResponse;
 
   constructor(

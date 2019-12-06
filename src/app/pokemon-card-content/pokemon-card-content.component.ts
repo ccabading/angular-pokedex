@@ -34,10 +34,9 @@ export class PokemonCardContentComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = false;
     dialogConfig.data = this.pokemonDetails;
 
     this.dialog.open(PokemonDetailsComponent, dialogConfig);
   }
-
-
 }
