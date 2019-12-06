@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PokeApiService } from '../services/PokeApi.service';
 
+import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material';
+import { PokemonDetailsComponent } from '../pokemon-details/pokemon-details.component';
 
 @Component({
   selector: 'app-pokemon-card-content',
@@ -12,7 +14,8 @@ export class PokemonCardContentComponent implements OnInit {
   pokemonDetails;
 
   constructor(
-    private pokeApiService: PokeApiService
+    private pokeApiService: PokeApiService,
+    private dialog: MatDialog,
   ) { }
 
   ngOnInit() {
@@ -22,5 +25,19 @@ export class PokemonCardContentComponent implements OnInit {
       console.log(this.pokemonDetails);
     });
   }
+
+  showType(typeUrl: string) {
+    console.log(typeUrl);
+  }
+
+  showPokemonDetails(url: string) {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.data = this.pokemonDetails;
+
+    this.dialog.open(PokemonDetailsComponent, dialogConfig);
+  }
+
 
 }

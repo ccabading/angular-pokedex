@@ -5,13 +5,3 @@
   align-items: center;
   padding: 4px 16px 4px 16px;
 }
-
-mat-card {
-  cursor: pointer;
-  width: 75%;
-  max-width: 400px;
-}
-
-mat-card-content {
-  text-align: center;
-}

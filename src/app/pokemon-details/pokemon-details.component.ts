@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { PokemonDetails } from '../models/PokemonDetails';
 
 @Component({
   selector: 'app-pokemon-details',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PokemonDetailsComponent implements OnInit {
 
-  constructor() { }
+  pokemonDetails: PokemonDetails;
+
+  constructor(
+    private dialogRef: MatDialogRef<PokemonDetailsComponent>,
+    @Inject(MAT_DIALOG_DATA) pokemonDetails
+    ) {
+    this.pokemonDetails = pokemonDetails;
+  }
 
   ngOnInit() {
+  }
+
+  closeDialog() {
+    this.dialogRef.close();
+  }
+
+  filterByType(typeUrl: string) {
+    console.log(typeUrl);
   }
 
 }

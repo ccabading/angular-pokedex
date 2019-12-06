@@ -1,9 +1,12 @@
 export interface PokemonDetails {
+  id: number;
   name: string;
+  base_experience: number;
   weight: number;
   height: number;
   sprites: Sprite;
   types: Types[];
+  stats: Stats[];
 }
 
 export interface Sprite {
@@ -24,5 +27,16 @@ export interface Types {
 
 export interface Type {
   name: string;
-  typeUrl: string;
+  url: string;
 }
+
+export interface Stats {
+  base_stat: number;
+  stat: Stat;
+}
+
+export interface Stat {
+  name: string;
+  url: string;
+}
+

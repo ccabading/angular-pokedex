@@ -1,3 +1,24 @@
-<p>
-  pokemon-details works!
-</p>
+<div>
+  <mat-dialog-content>
+    <img src="{{ pokemonDetails.sprites.front_default }}">
+    <p>{{ pokemonDetails.name | uppercase }}</p>
+    <div>
+      <p><span>Height(in decimeters): </span>{{ pokemonDetails.height }}</p>
+      <p><span>Weight(in hectograms): </span>{{ pokemonDetails.weight }}</p>
+    </div>
+    <p><span>Base EXP: </span>{{ pokemonDetails.base_experience }}</p>
+    <div>
+      <p *ngFor="let stat of pokemonDetails.stats">
+        {{ stat.stat.name | uppercase }}<span>: </span>{{ stat.base_stat }}
+      </p>
+    </div>
+    <div>
+      <button mat-raised-button *ngFor="let type of pokemonDetails.types" (click)="filterByType(type.type.url)">
+        {{ type.type.name | uppercase }}
+      </button>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-raised-button class="close" (click)="closeDialog()">Close</button>
+  </mat-dialog-actions>
+</div>

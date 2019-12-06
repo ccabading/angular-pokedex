@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Injectable } from '@angular/core';
+
 import { PokeApiService } from '../services/PokeApi.service';
 
 @Component({
@@ -12,8 +13,9 @@ export class PokemonListComponent implements OnInit {
   apiResponse;
 
   constructor(
-    private pokeApiService: PokeApiService
+    private pokeApiService: PokeApiService,
   ) { }
+
 
   ngOnInit() {
     this.getPokeApiResults();
@@ -30,10 +32,4 @@ export class PokemonListComponent implements OnInit {
       console.log(this.apiResponse);
     });
   }
-
-  showPokemonDetails(url: string) {
-    console.log(url);
-
-  }
-
 }
