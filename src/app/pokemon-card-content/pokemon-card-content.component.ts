@@ -30,7 +30,7 @@ export class PokemonCardContentComponent implements OnInit {
     console.log(typeUrl);
   }
 
-  showPokemonDetails(url: string) {
+  showPokemonDetails() {
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.disableClose = true;

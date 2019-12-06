@@ -62,82 +62,82 @@ body {
 }
 
 /* Pokemon Types Button Design */
-.mat-raised-button.normal {
-  background-color: #a8a77a;
+.normal {
+  color: #a8a77a;
 }
 
 .fighting {
-  background-color: #c22e28;
+  color: #c22e28;
 }
 
 .flying {
-  background-color: #a98ff3;
+  color: #a98ff3;
 }
 
 .poison {
-  background-color: #a33ea1;
+  color: #a33ea1;
 }
 
 .ground {
-  background-color: #e2bf65;
+  color: #e2bf65;
 }
 
 .rock {
-  background-color: #b6a136;
+  color: #b6a136;
 }
 
 .bug {
-  background-color: #a6b91a;
+  color: #a6b91a;
 }
 
 .ghost {
-  background-color: #735797;
+  color: #735797;
 }
 
 .steel {
-  background-color: #b7b7ce;
+  color: #b7b7ce;
 }
 
 .fire {
-  background-color: #ee8130;
+  color: #ee8130;
 }
 
 .water {
-  background-color: #6390f0;
+  color: #6390f0;
 }
 
 .grass {
-  background-color: #7ac74c;
+  color: #7ac74c;
 }
 
 .electric {
-  background-color: #f7d02c;
+  color: #f7d02c;
 }
 
 .psychic {
-  background-color: #f95587;
+  color: #f95587;
 }
 
 .ice {
-  background-color: #96d9d6;
+  color: #96d9d6;
 }
 
 .dragon {
-  background-color: #6f35fc;
+  color: #6f35fc;
 }
 
 .dark {
-  background-color: #705746;
+  color: #705746;
 }
 
 .fairy {
-  background-color: #d685ad;
+  color: #d685ad;
 }
 
 .unknown {
-  background-color: #68a090;
+  color: #68a090;
 }
 
 .shadow {
-  background-color: purple;
+  color: purple;
 }

@@ -1,14 +1,14 @@
 <div *ngIf="pokemonDetails">
-  <mat-card (click)="showPokemonDetails(pokemonDetails)">
+  <mat-card (click)="showPokemonDetails(pokemonDetails)" color="accent">
     <mat-card-content>
       <p>{{ pokemonDetails.name | uppercase }}</p>
       <img src="{{ pokemonDetails.sprites.front_default }}">
       <p>Weight: {{ pokemonDetails.weight }}</p>
       <p>Height: {{ pokemonDetails.height }}</p>
       <div id="type-buttons">
-        <button mat-raised-button *ngFor="let type of pokemonDetails.types" (click)="showType(type.type.url)">
+        <p *ngFor="let type of pokemonDetails.types" class=${{type.type.name}}>
           {{ type.type.name | uppercase }}
-        </button>
+        </p>
       </div>
     </mat-card-content>
   </mat-card>

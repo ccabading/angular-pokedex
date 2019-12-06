@@ -1,7 +1,5 @@
-<p>pokemon-list-nav works!</p>
-
 <div>
-  <button mat-raised-button color="accent">Previous</button>
+  <button mat-raised-button color="accent" (click)="changeResults(apiResponse.previous)">Previous</button>
   <p>Showing 000 to 020 of {{ apiResponse.count }} Results</p>
-  <button mat-raised-button color="accent">Next</button>
+  <button mat-raised-button color="accent" (click)="changeResults(apiResponse.previous)">Next</button>
 </div>
