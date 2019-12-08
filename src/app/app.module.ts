@@ -3,9 +3,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { TopBarComponent } from './top-bar/top-bar.component';
+import { PokemonTopBarComponent } from './pokemon-top-bar/pokemon-top-bar.component';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 import { PokemonDetailsComponent } from './pokemon-details/pokemon-details.component';
 import { PokemonCardContentComponent } from './pokemon-card-content/pokemon-card-content.component';
@@ -16,20 +17,24 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
-import { PokemonListNavComponent } from './pokemon-list-nav/pokemon-list-nav.component';
+import { MatSelectModule } from '@angular/material/select';
+
+import { FilterPipe } from './custom_pipes/Filter.pipe';
 
 @NgModule({
    declarations: [
       AppComponent,
-      TopBarComponent,
+      PokemonTopBarComponent,
       PokemonListComponent,
       PokemonDetailsComponent,
       PokemonCardContentComponent,
-      PokemonListNavComponent
+      FilterPipe,
    ],
    imports: [
       BrowserModule,
       BrowserAnimationsModule,
+      FormsModule,
+      ReactiveFormsModule,
       HttpClientModule,
       RouterModule.forRoot([
         { path: '', component: PokemonListComponent },
@@ -40,6 +45,7 @@ import { PokemonListNavComponent } from './pokemon-list-nav/pokemon-list-nav.com
       MatGridListModule,
       MatCardModule,
       MatDialogModule,
+      MatSelectModule,
    ],
    providers: [],
    bootstrap: [

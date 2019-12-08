@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, Input } from '@angular/core';
+import { Component, OnInit, HostListener, Input, EventEmitter } from '@angular/core';
 import { Injectable } from '@angular/core';
 
 import { PokeApiService } from '../services/PokeApi.service';
@@ -10,27 +10,79 @@ import { PokeApiService } from '../services/PokeApi.service';
 })
 export class PokemonListComponent implements OnInit {
 
-  @Input() typeUrl: string;
-  apiResponse;
+  @Input() typesUrl: any;
+  @Input() searchInput: any;
+  prevTypesUrl = '';
+  count = 20;
+  index = 0;
+  max = 0;
+  hasMaxed = false;
+  apiUrl = 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=964';
+  pokemonList;
+  pokemonTypeList;
+  prevDisabled: boolean;
+  nextDisabled: boolean;
 
   constructor(
     private pokeApiService: PokeApiService,
   ) { }
 
-
   ngOnInit() {
-    this.getPokeApiResults();
+    this.getDefaultResults();
+    this.prevDisabled = true;
+    this.nextDisabled = false;
   }
 
-  changeResults(nextUrl: string) {
-    this.pokeApiService.setUrl(nextUrl);
-    this.getPokeApiResults();
+  prevResults() {
+    window.scrollTo(0, 0);
+    this.nextDisabled = false;
+    this.index -= this.count;
+    if (this.index === 0) {
+      this.prevDisabled = true;
+    }
+    if (this.hasMaxed) {
+      this.hasMaxed = false;
+    }
   }
 
-  getPokeApiResults() {
+  nextResults() {
+    window.scrollTo(0, 0);
+    this.prevDisabled = false;
+    this.index += this.count;
+    if (this.index + this.count > this.max) {
+      this.nextDisabled = true;
+      this.hasMaxed = true;
+    }
+  }
+
+  // tslint:disable-next-line: use-lifecycle-interface
+  ngOnChanges() {
+    this.index = 0;
+    this.prevDisabled = true;
+    this.nextDisabled = false;
+
+    if (this.prevTypesUrl !== this.typesUrl) {
+      if (this.typesUrl !== undefined) {
+        if (this.typesUrl === '') {
+          this.getDefaultResults();
+        } else {
+          this.pokeApiService.setUrl(this.typesUrl);
+          this.pokeApiService.getPokeApiTypes().subscribe(response => {
+            this.pokemonTypeList = response;
+            this.max = this.pokemonTypeList.pokemon.length;
+          });
+        }
+      }
+      this.prevTypesUrl = this.typesUrl;
+    }
+  }
+
+  getDefaultResults() {
+    this.pokeApiService.setUrl(this.apiUrl);
     this.pokeApiService.getPokeApiResults().subscribe(response => {
-      this.apiResponse = response;
-      console.log(this.apiResponse);
+      this.pokemonList = response;
+      this.max = this.pokemonList.results.length;
     });
   }
+
 }

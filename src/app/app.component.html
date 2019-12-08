@@ -1,5 +1,7 @@
-<app-top-bar></app-top-bar>
+<app-pokemon-top-bar (typeSelected)="childEventClicked($event)" (searchValue)="searchChanged($event)"></app-pokemon-top-bar>
 
-<div class="container">
+<!-- <div class="container">
   <router-outlet></router-outlet>
-</div>
+</div> -->
+
+<app-pokemon-list class="container" [typesUrl]="typeUrl" [searchInput]="searchText"></app-pokemon-list>

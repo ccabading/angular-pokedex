@@ -22,12 +22,7 @@ export class PokemonCardContentComponent implements OnInit {
     this.pokeApiService.setUrl(this.pokemonUrl);
     this.pokeApiService.getPokemonDetails().subscribe(response => {
       this.pokemonDetails = response;
-      console.log(this.pokemonDetails);
     });
-  }
-
-  showType(typeUrl: string) {
-    console.log(typeUrl);
   }
 
   showPokemonDetails() {

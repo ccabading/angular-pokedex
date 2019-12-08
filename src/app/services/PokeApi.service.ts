@@ -12,7 +12,8 @@ import { PokemonDetails } from '../models/PokemonDetails';
 
 export class PokeApiService {
 
-  url = 'https://pokeapi.co/api/v2/pokemon/';
+  // url = 'https://pokeapi.co/api/v2/pokemon/';
+  url: string;
 
   constructor(
     private http: HttpClient
