@@ -33,7 +33,6 @@ export class PokemonTopBarComponent implements OnInit {
   }
 
   onAmtChange() {
-    console.log(this.searchVal.value);
     this.searchValue.emit(this.searchVal.value);
   }
 
