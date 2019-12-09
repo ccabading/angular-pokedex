@@ -78,9 +78,6 @@ export class PokemonListComponent implements OnInit {
 
   // tslint:disable-next-line: use-lifecycle-interface
   ngOnChanges() {
-    console.log('this.searching:' + this.searching +
-    ' this.prevSearchInput: ' + this.prevSearchInput +
-    ' this.searchInput: ' + this.searchInput);
     if (this.prevTypesUrl !== this.typesUrl || this.prevSearchInput !== this.searchInput) {
       this.index = 0;
       this.prevDisabled = true;
