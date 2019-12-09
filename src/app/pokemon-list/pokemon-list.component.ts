@@ -13,8 +13,8 @@ export class PokemonListComponent implements OnInit {
   @Input() typesUrl: any;
   @Input() searchInput: any;
   apiUrl = 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=964';
-  prevTypesUrl = '';
-  prevSearchInput = '';
+  prevTypesUrl;
+  prevSearchInput;
   count = 20;
   index = 0;
   max = 0;
@@ -24,6 +24,8 @@ export class PokemonListComponent implements OnInit {
   pokemonList;
   pokemonTypeList;
   breakpoint: number;
+  notFound = false;
+  searching = false;
 
   constructor(
     private pokeApiService: PokeApiService,
@@ -33,24 +35,21 @@ export class PokemonListComponent implements OnInit {
     this.getDefaultResults();
     this.prevDisabled = true;
     this.nextDisabled = false;
-    this.calculateCols();
-    // this.breakpoint = (window.innerWidth <= 600) ? 1 : 4;
+    this.calculateColumns();
   }
 
   onResize() {
-    this.calculateCols();
-    // console.log(window.innerWidth);
-    // this.breakpoint = (window.innerWidth <= 600) ? 1 : 4;
+    this.calculateColumns();
   }
 
-  calculateCols() {
-    if (window.innerWidth > 1000) {
+  calculateColumns() {
+    if (window.innerWidth > 1100) {
       this.breakpoint = 4;
     } else if (window.innerWidth > 800) {
       this.breakpoint = 3;
-    } else if (window.innerWidth <= 800) {
+    } else if (window.innerWidth > 600) {
       this.breakpoint = 2;
-    } else if (window.innerWidth <= 600) {
+    } else if (window.innerWidth > 400) {
       this.breakpoint = 1;
     }
   }
@@ -79,6 +78,9 @@ export class PokemonListComponent implements OnInit {
 
   // tslint:disable-next-line: use-lifecycle-interface
   ngOnChanges() {
+    console.log('this.searching:' + this.searching +
+    ' this.prevSearchInput: ' + this.prevSearchInput +
+    ' this.searchInput: ' + this.searchInput);
     if (this.prevTypesUrl !== this.typesUrl || this.prevSearchInput !== this.searchInput) {
       this.index = 0;
       this.prevDisabled = true;
@@ -94,6 +96,9 @@ export class PokemonListComponent implements OnInit {
           });
         }
       }
+      if ((this.prevSearchInput !== this.searchInput) && this.searchInput !== '') {
+        this.searching = true;
+      } else { this.searching = false; }
       this.prevTypesUrl = this.typesUrl;
       this.prevSearchInput = this.searchInput;
     }

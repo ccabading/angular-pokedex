@@ -2,7 +2,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-weight: 500;
 }
 
 #search-options {
@@ -13,4 +12,11 @@
 
 .mat-form-field {
   margin: 8px;
+}
+
+@media only screen and (max-width: 767px) {
+  .mat-toolbar {
+    height: 250%;
+    display: block;
+  }
 }
