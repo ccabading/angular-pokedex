@@ -10,7 +10,7 @@ export class AppComponent {
   typeUrl: string;
   searchText: string;
 
-  childEventClicked(typeSelected: any) {
+  typeSelected(typeSelected: any) {
     this.typeUrl = typeSelected;
   }
 
