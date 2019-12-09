@@ -33,12 +33,24 @@ export class PokemonListComponent implements OnInit {
     this.getDefaultResults();
     this.prevDisabled = true;
     this.nextDisabled = false;
-    this.breakpoint = (window.innerWidth <= 600) ? 1 : 4;
+    this.calculateCols();
+    // this.breakpoint = (window.innerWidth <= 600) ? 1 : 4;
   }
 
   onResize() {
-    console.log(window.innerWidth);
-    this.breakpoint = (window.innerWidth <= 600) ? 1 : 4;
+    this.calculateCols();
+    // console.log(window.innerWidth);
+    // this.breakpoint = (window.innerWidth <= 600) ? 1 : 4;
+  }
+
+  calculateCols() {
+    if (window.innerWidth > 800) {
+      this.breakpoint = 3;
+    } else if (window.innerWidth <= 800) {
+      this.breakpoint = 2;
+    } else if (window.innerWidth <= 600) {
+      this.breakpoint = 1;
+    }
   }
 
   prevResults() {

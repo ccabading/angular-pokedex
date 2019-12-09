@@ -9,7 +9,7 @@
     <button mat-raised-button [disabled]="nextDisabled "color="accent" (click)="nextResults()">Next</button>
   </div>
 
-  <mat-grid-list [cols]="breakpoint" (window.resize)="onResize($event)">
+  <mat-grid-list [cols]="breakpoint" (window:resize)="onResize($event)">
     <mat-grid-tile *ngFor="let pokemon of pokemonList.results | filter: searchInput | slice:[index]:[index + count]">
       <app-pokemon-card-content [pokemonUrl]="pokemon.url"></app-pokemon-card-content>
     </mat-grid-tile>
