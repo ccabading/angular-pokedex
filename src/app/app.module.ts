@@ -16,7 +16,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
@@ -49,11 +49,15 @@ import { FilterWithTypePipe } from './custom_pipes/FilterWithType.pipe';
       MatGridListModule,
       MatCardModule,
       MatDialogModule,
+      MatDialogRef,
       MatSelectModule,
       MatDividerModule,
       MatListModule,
    ],
-   providers: [],
+   providers: [{
+    provide: MatDialogRef,
+    useValue: {}
+    }],
    bootstrap: [
       AppComponent
    ],
