@@ -18,8 +18,11 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
 
 import { FilterPipe } from './custom_pipes/Filter.pipe';
+import { FilterWithTypePipe } from './custom_pipes/FilterWithType.pipe';
 
 @NgModule({
    declarations: [
@@ -29,6 +32,7 @@ import { FilterPipe } from './custom_pipes/Filter.pipe';
       PokemonDetailsComponent,
       PokemonCardContentComponent,
       FilterPipe,
+      FilterWithTypePipe,
    ],
    imports: [
       BrowserModule,
@@ -46,6 +50,8 @@ import { FilterPipe } from './custom_pipes/Filter.pipe';
       MatCardModule,
       MatDialogModule,
       MatSelectModule,
+      MatDividerModule,
+      MatListModule,
    ],
    providers: [],
    bootstrap: [

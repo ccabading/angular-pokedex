@@ -1,15 +1,16 @@
 <div *ngIf="pokemonList && !typesUrl">
+
   <div class="listHeader">
     <button mat-raised-button [disabled]="prevDisabled" color="accent" (click)="prevResults()">Previous</button>
     <p>Showing {{ index + 1 }} to
       <span *ngIf="!hasMaxed">{{ index + count }}</span>
       <span *ngIf="hasMaxed">{{ max }}</span>
       of {{ max }} Results</p>
-    <button mat-raised-button [disabled]="nextDisabled"color="accent" (click)="nextResults()">Next</button>
+    <button mat-raised-button [disabled]="nextDisabled "color="accent" (click)="nextResults()">Next</button>
   </div>
 
-  <mat-grid-list cols="4">
-    <mat-grid-tile *ngFor="let pokemon of pokemonList.results | filter: searchInput | slice:[index]:[index + count] ">
+  <mat-grid-list [cols]="breakpoint" (window.resize)="onResize($event)">
+    <mat-grid-tile *ngFor="let pokemon of pokemonList.results | filter: searchInput | slice:[index]:[index + count]">
       <app-pokemon-card-content [pokemonUrl]="pokemon.url"></app-pokemon-card-content>
     </mat-grid-tile>
   </mat-grid-list>
@@ -17,25 +18,26 @@
   <div class="listHeader">
     <button mat-raised-button [disabled]="prevDisabled" color="accent" (click)="prevResults()">Previous</button>
     <p>Showing {{ index + 1 }} to
-        <span *ngIf="!hasMaxed">{{ index + count }}</span>
-        <span *ngIf="hasMaxed">{{ max }}</span>
-        of {{ max }} Results</p>
+      <span *ngIf="!hasMaxed">{{ index + count }}</span>
+      <span *ngIf="hasMaxed">{{ max }}</span>
+      of {{ max }} Results</p>
     <button mat-raised-button [disabled]="nextDisabled" color="accent" (click)="nextResults()">Next</button>
   </div>
+
 </div>
 
 <div *ngIf="typesUrl && pokemonTypeList">
   <div class="listHeader">
     <button mat-raised-button [disabled]="prevDisabled" color="accent" (click)="prevResults()">Previous</button>
     <p>Showing {{ index + 1 }} to
-        <span *ngIf="!hasMaxed">{{ index + count }}</span>
-        <span *ngIf="hasMaxed">{{ max }}</span>
-        of {{ max }} Results</p>
+      <span *ngIf="!hasMaxed">{{ index + count }}</span>
+      <span *ngIf="hasMaxed">{{ max }}</span>
+      of {{ max }} Results</p>
     <button mat-raised-button [disabled]="nextDisabled" color="accent" (click)="nextResults()">Next</button>
   </div>
 
   <mat-grid-list cols="4">
-    <mat-grid-tile *ngFor="let pokemon of pokemonTypeList.pokemon | slice:[index]:[index + count]">
+    <mat-grid-tile *ngFor="let pokemon of pokemonTypeList.pokemon | filterwithtype: searchInput | slice:[index]:[index + count]">
         <app-pokemon-card-content [pokemonUrl]="pokemon.pokemon.url"></app-pokemon-card-content>
     </mat-grid-tile>
   </mat-grid-list>
@@ -43,9 +45,9 @@
   <div class="listHeader">
     <button mat-raised-button [disabled]="prevDisabled" color="accent" (click)="prevResults()">Previous</button>
     <p>Showing {{ index + 1 }} to
-        <span *ngIf="!hasMaxed">{{ index + count }}</span>
-        <span *ngIf="hasMaxed">{{ max }}</span>
-        of {{ max }} Results</p>
+      <span *ngIf="!hasMaxed">{{ index + count }}</span>
+      <span *ngIf="hasMaxed">{{ max }}</span>
+      of {{ max }} Results</p>
     <button mat-raised-button [disabled]="nextDisabled" color="accent" (click)="nextResults()">Next</button>
   </div>
 </div>

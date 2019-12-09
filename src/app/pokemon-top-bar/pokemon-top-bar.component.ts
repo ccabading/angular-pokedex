@@ -28,11 +28,11 @@ export class PokemonTopBarComponent implements OnInit {
     });
   }
 
-  setType() {
+  changeType() {
     this.typeSelected.emit(this.selected);
   }
 
-  onAmtChange() {
+  searchChanged() {
     this.searchValue.emit(this.searchVal.value);
   }
 

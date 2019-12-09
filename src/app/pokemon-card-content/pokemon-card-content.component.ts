@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PokeApiService } from '../services/PokeApi.service';
 
-import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material';
+import { MatDialog, MatDialogConfig } from '@angular/material';
 import { PokemonDetailsComponent } from '../pokemon-details/pokemon-details.component';
 
 @Component({
@@ -27,11 +27,9 @@ export class PokemonCardContentComponent implements OnInit {
 
   showPokemonDetails() {
     const dialogConfig = new MatDialogConfig();
-
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = false;
     dialogConfig.data = this.pokemonDetails;
-
     this.dialog.open(PokemonDetailsComponent, dialogConfig);
   }
 }

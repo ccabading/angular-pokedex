@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, Input, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Injectable } from '@angular/core';
 
 import { PokeApiService } from '../services/PokeApi.service';
@@ -12,16 +12,18 @@ export class PokemonListComponent implements OnInit {
 
   @Input() typesUrl: any;
   @Input() searchInput: any;
+  apiUrl = 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=964';
   prevTypesUrl = '';
+  prevSearchInput = '';
   count = 20;
   index = 0;
   max = 0;
   hasMaxed = false;
-  apiUrl = 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=964';
-  pokemonList;
-  pokemonTypeList;
   prevDisabled: boolean;
   nextDisabled: boolean;
+  pokemonList;
+  pokemonTypeList;
+  breakpoint: number;
 
   constructor(
     private pokeApiService: PokeApiService,
@@ -31,6 +33,12 @@ export class PokemonListComponent implements OnInit {
     this.getDefaultResults();
     this.prevDisabled = true;
     this.nextDisabled = false;
+    this.breakpoint = (window.innerWidth <= 600) ? 1 : 4;
+  }
+
+  onResize() {
+    console.log(window.innerWidth);
+    this.breakpoint = (window.innerWidth <= 600) ? 1 : 4;
   }
 
   prevResults() {
@@ -57,11 +65,10 @@ export class PokemonListComponent implements OnInit {
 
   // tslint:disable-next-line: use-lifecycle-interface
   ngOnChanges() {
-    this.index = 0;
-    this.prevDisabled = true;
-    this.nextDisabled = false;
-
-    if (this.prevTypesUrl !== this.typesUrl) {
+    if (this.prevTypesUrl !== this.typesUrl || this.prevSearchInput !== this.searchInput) {
+      this.index = 0;
+      this.prevDisabled = true;
+      this.nextDisabled = false;
       if (this.typesUrl !== undefined) {
         if (this.typesUrl === '') {
           this.getDefaultResults();
@@ -74,6 +81,7 @@ export class PokemonListComponent implements OnInit {
         }
       }
       this.prevTypesUrl = this.typesUrl;
+      this.prevSearchInput = this.searchInput;
     }
   }
 
