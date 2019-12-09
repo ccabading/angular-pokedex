@@ -26,8 +26,4 @@ export class PokemonDetailsComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  filterByType(typeUrl: string) {
-    console.log(typeUrl);
-  }
-
 }

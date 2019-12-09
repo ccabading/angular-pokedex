@@ -4,11 +4,9 @@
       <img src="{{ pokemonDetails.sprites.front_default }}" width="200px">
       <p><b>ID: {{ pokemonDetails.id }}</b></p>
       <p><b>{{ pokemonDetails.name | uppercase }}</b></p>
-      <div class="typeDiv">
-        <p><b>TYPES: <span *ngFor="let type of pokemonDetails.types" [class]="type.type.name">
-          {{ type.type.name | uppercase }}</span></b>
-        </p>
-      </div>
+      <p><b>TYPES: <span *ngFor="let type of pokemonDetails.types" [class]="type.type.name">
+        {{ type.type.name | uppercase }}</span></b>
+      </p>
     </div>
     <div class="secondDiv">
       <p><span>Height(in decimeters): </span>{{ pokemonDetails.height }}</p>

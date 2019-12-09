@@ -14,10 +14,6 @@
   padding: 12px;
 }
 
-.typeDiv {
-  display: inline;
-}
-
 @media only screen and (max-width: 767px) {
   .details {
     display: block;
