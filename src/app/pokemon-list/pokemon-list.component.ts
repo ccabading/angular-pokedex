@@ -44,7 +44,9 @@ export class PokemonListComponent implements OnInit {
   }
 
   calculateCols() {
-    if (window.innerWidth > 800) {
+    if (window.innerWidth > 1000) {
+      this.breakpoint = 4;
+    } else if (window.innerWidth > 800) {
       this.breakpoint = 3;
     } else if (window.innerWidth <= 800) {
       this.breakpoint = 2;
