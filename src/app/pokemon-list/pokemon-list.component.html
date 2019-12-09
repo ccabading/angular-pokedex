@@ -6,7 +6,7 @@
       <span *ngIf="!hasMaxed">{{ index + count }}</span>
       <span *ngIf="hasMaxed">{{ max }}</span>
       of {{ max }} Results</p>
-    <p *ngIf="searching">Searching for [{{searchInput}}]</p>
+    <p *ngIf="searching">Searching for [{{ searchInput | uppercase }}]</p>
     <button mat-raised-button [disabled]="nextDisabled "color="accent" (click)="nextResults()">NEXT</button>
   </div>
 
@@ -22,7 +22,7 @@
       <span *ngIf="!hasMaxed">{{ index + count }}</span>
       <span *ngIf="hasMaxed">{{ max }}</span>
       of {{ max }} Results</p>
-    <p *ngIf="searching">Searching for [{{searchInput}}]</p>
+    <p *ngIf="searching">Searching for [{{ searchInput | uppercase }}]</p>
     <button mat-raised-button [disabled]="nextDisabled" color="accent" (click)="nextResults()">NEXT</button>
   </div>
 
@@ -35,7 +35,7 @@
       <span *ngIf="!hasMaxed">{{ index + count }}</span>
       <span *ngIf="hasMaxed">{{ max }}</span>
       of {{ max }} Results</p>
-    <p *ngIf="searching">Searching for [{{searchInput}}]</p>
+    <p *ngIf="searching">Searching for [{{ searchInput | uppercase }}]</p>
     <button mat-raised-button [disabled]="nextDisabled" color="accent" (click)="nextResults()">NEXT</button>
   </div>
 
@@ -51,7 +51,7 @@
       <span *ngIf="!hasMaxed">{{ index + count }}</span>
       <span *ngIf="hasMaxed">{{ max }}</span>
       of {{ max }} Results</p>
-    <p *ngIf="searching">Searching for [{{searchInput}}]</p>
+    <p *ngIf="searching">Searching for [{{ searchInput | uppercase }}]</p>
     <button mat-raised-button [disabled]="nextDisabled" color="accent" (click)="nextResults()">NEXT</button>
   </div>
 </div>
