@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PokeApiService } from '../services/PokeApi.service';
 
-import { MatDialog, MatDialogConfig } from '@angular/material';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { PokemonDetailsComponent } from '../pokemon-details/pokemon-details.component';
 
 @Component({
